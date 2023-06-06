@@ -37,4 +37,8 @@ $routes = [
     ''                  => ['AppController', 'index'],
     '/inscription'       => ['UserController', 'inscription']
 
+
+
+
+
 ];

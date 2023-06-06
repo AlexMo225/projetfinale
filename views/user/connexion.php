@@ -1,7 +1,9 @@
-<?php  
+<?php 
+echo "test"; 
 $title = "Connexion";
 include VIEWS .'inc/head.inc.php'; 
 include VIEWS .'inc/header.inc.php';
+
 
 ?>
 
