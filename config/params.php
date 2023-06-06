@@ -36,10 +36,5 @@ const ASSETS = BASE_DIR . 'assets/';
 $routes = [
     ''                  => ['AppController', 'index'],
     '/inscription'       => ['UserController', 'inscription']
-    '/Connexion'       => ['UserController', 'Connexion']
-
-
-
-
 
 ];

@@ -33,17 +33,17 @@ include VIEWS .'inc/header.inc.php';
 
 			<div class="form-floating col-md-6 mb-3">
 				<input type="tel" class="form-control" id="tel" placeholder="tel" name="tel">
-				 <label for="tel">Téléphone</label>
+				<label for="tel">Téléphone</label>
 			</div>
 
             <div class="form-floating col-md-6 mb-3">
 				<input type="adress" class="form-control" id="adress" placeholder="adress" name="adress">
-				 <label for="adress">Adresse</label>
+				<label for="adress">Adresse</label>
 			</div>
 
             <div class="form-floating col-md-6 mb-3">
-				<input type="email" class="form-control" id="email" placeholder="email" name="email">
-				 <label for="email">Mail</label>
+				<input type="mail" class="form-control" id="mail" placeholder="mail" name="mail">
+				<label for="mail">Mail</label>
 			</div>
 		</div>
 

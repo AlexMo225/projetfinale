@@ -1,5 +1,6 @@
 <?php  
 $title = "Accueil";
+include VIEWS.'inc/head.inc.php'; 
 include VIEWS.'inc/header.inc.php'; 
 
 ?>
