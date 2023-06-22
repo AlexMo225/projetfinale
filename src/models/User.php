@@ -18,11 +18,11 @@ class User extends Db
 		$this->setnom($dataFromPost["nom"]);
 		$this->setprenom($dataFromPost["prenom"]);
 		$this->setLogin($dataFromPost["login"]);
-		$this->setMail($dataFromPost["email"]);
+		$this->setMail($dataFromPost["mail"]);
 		$this->setPassword($dataFromPost["password"]);
 		$this->setAddress($dataFromPost["adress"]);
 		$this->setTelephone($dataFromPost["tel"]);
-		$this->setStatut(0);
+		//$this->setStatut(0);
 	}
 
 	public function insertDb()
@@ -74,7 +74,7 @@ class User extends Db
 			
 			}
 
-			if (!isset($_POST["email"]) || empty($_POST["email"]))
+			if (!isset($_POST["mail"]) || empty($_POST["mail"]))
 			{
 				$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
 					  Veuillez remplir votre email !

@@ -1,55 +1,69 @@
 <?php 
-echo "test"; 
-$title = "Connexion";
-include VIEWS .'inc/head.inc.php'; 
-include VIEWS .'inc/header.inc.php';
-
-
+$title = "Connexion"; 
 ?>
 
-	
-	<form method="post" action="login" >
-	
-	<section class="vh-100" style="background-color: #1c2e31;">
-  <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-        <div class="card shadow-2-strong" style="border-radius: 1rem;">
-          <div class="card-body p-5 text-center">
+<!DOCTYPE html>
+<html lang="fr-FR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title><?=$title?></title>
+        <meta name="description" content>
+        <script
+            src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Red+Rose:wght@300;400;700&display=swap"
+            rel="stylesheet">
+            <link rel="icon" type="image" href="img/Group 2071.png" />    
+        <link rel="stylesheet" href="<?= ASSETS. "css/reset.css"?>">
+        <link rel="stylesheet" href="<?= ASSETS. "css/conex.css" ?>">
+        <script src="<?= ASSETS. "js/slider.js"?>" defer></script>
+        <script src="<?= ASSETS. "js/main.js"?>" defer></script>
+    </head>
+<body>
+        <section>
 
-            <h3 class="mb-5">Connexion</h3>
-            <?= isset($_SESSION["message"]) ? $_SESSION["message"] : ""; 
+            <div class="imgbox">
+                <img src="<?= ASSETS. "img/c63fe9bed2c9bd31cd36530ad8d53e0b.jpg"?>" alt="epices">
+                <img src="<?= ASSETS. "img/42d5f54cba25927d53e1bf48b820da8d.jpg"?>" alt="epices">
 
-$_SESSION["message"] = "";
-?>
-            <div class="form-outline mb-4">
-			<label class="form-label" for="typeEmailX-2">Email</label>
-              <input type="email" id="typeEmailX-2" class="form-control form-control-lg" name="email" value="<?=!empty($_SESSION['email']) ? $_SESSION['email'] : "";?>">
-              
+                <img src=" <?= ASSETS. "img/carou1.jpg"?>" alt="Image 1">
+                <img src=" <?= ASSETS. "img/carou2.jpg"?>" alt="Image 2">
+                <img src=" <?= ASSETS. "img/carou3.jpg"?>" alt="Image 3">
             </div>
 
-            <div class="form-outline mb-4">
-			<label class="form-label" for="typePasswordX-2">mot de passe</label>
-              <input type="password" id="typePasswordX-2" class="form-control form-control-lg" name="password" />
+            <div class="contentbox">
+                <div class="formbox">
+                    <h1>Se connecter</h1>
+                    <form action="#">
+                        <div class="inputbx">
+                            <span>Email</span>
+                            <input type="text">
+                        </div>
+                        <div class="inputbx">
+                            <span>Mot de passe</span>
+                            <input type="password">
+                        </div>
+                        <div class="inputbx">
+                            <input type="submit" value="Connexion" name="submit">
+                        </div>
+                        <div class="inputbx">
+                            <p>Vous n'avez pas de compte ? <a
+                                    href="inscription">Créez un compte !</a></p>
+                        </div>
+                    </form>
 
+                </div>
 
             </div>
-			<input type="submit" class="btn btn-primary mt-3" value="Submit" name="submit">
+        </section>
 
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-	
-
-	
-
-</form>
+    </body>
 <?php  
 
-var_dump($_SESSION['user']);
-include VIEWS.'inc/footer.php';
-
+if (!empty($_SESSION['user'])) {
+  var_dump($_SESSION['user']);
+}
 ?>

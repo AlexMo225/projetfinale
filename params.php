@@ -16,21 +16,6 @@ const CONFIG = [
         'projectBaseUrl' => 'https://mjm03.fr/dv22sahie/'
     ]
 ];
-/**const CONFIG = [
-   'db' => [ 
-       'DB_HOST' => 'localhost',
-       'DB_PORT' => '3306',
-       'DB_NAME' => 'epices',
-       'DB_USER' => 'root',
-       'DB_PSWD' => '',
-   ],
-   'app' => [
-       'name' => 'projetfinale',
-       'projectBaseUrl' => 'http://localhost/projetfinale'
-   ]
-];
-**/
-
 
 /**
  * Constantes pour accéder rapidement aux dossiers importants du MVC

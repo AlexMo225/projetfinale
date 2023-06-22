@@ -1,0 +1,110 @@
+* {
+    box-sizing: border-box;
+    font-family: "Red Rose", cursive;
+}
+body {
+    font-family: "Red Rose", cursive;
+    background-color: #f2f2f2;
+    text-decoration: none;
+}
+section {
+    position: relative;
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}
+section .imgbox {
+    position: relative;
+    width: 50%;
+    overflow: hidden;
+}
+
+section .imgbox img {
+    width: 100%;
+    height: auto;
+    display: none;
+}
+
+section .contentbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+}
+section .contentbox .formbox h1 {
+    color: #e49f4e;
+    font-weight: 600;
+    font-size: 40px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    border-bottom: 4px solid #e49f4e;
+    letter-spacing: 1px;
+    display: inline-block;
+}
+
+.inputbx {
+    margin-bottom: 20px;
+}
+
+.inputbx span {
+    font-size: 16px;
+    margin-bottom: 5px;
+    display: inline-block;
+    color: #607db8;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.inputbx input {
+    width: 100%;
+    padding: 10px 20px;
+    font-weight: 400;
+    border: 1px solid #607db8;
+    letter-spacing: 1px;
+    color: #607db8;
+    outline: none;
+    background-color: transparent;
+    border-radius: 10px;
+}
+.inputbx input[type="submit"] {
+    background-color: #e49e4ec0;
+    width: 100%;
+    color: white;
+    outline: 0;
+    border: 0;
+    font-weight: 400;
+    cursor: pointer;
+}
+.inputbx input [type="submit"]:hover {
+    background-color: #e49f4e;
+}
+.inputbx input p {
+    color: #607db8;
+    text-align: center;
+}
+.inputbx p a {
+    color: #e49f4e;
+}
+
+/*      responsive     */
+
+@media (max-width: 768px) {
+    section .imgbox {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    section .contentbox {
+        width: 100%;
+        z-index: 1;
+    }
+
+    section .contentbox .formbox {
+        background-color: rgb(255 255 255/0.9);
+        padding: 40px;
+    }
+}
