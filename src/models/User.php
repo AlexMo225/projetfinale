@@ -21,7 +21,7 @@ class User extends Db
 		$this->setMail($dataFromPost["mail"]);
 		$this->setPassword($dataFromPost["password"]);
 		$this->setAddress($dataFromPost["adress"]);
-		$this->setTelephone($dataFromPost["tel"]);
+		$this->setTelephone($dataFromPost["telephone"]);
 		//$this->setStatut(0);
 	}
 
@@ -46,6 +46,7 @@ class User extends Db
 			$_SESSION["message"] = "Il y a eu une erreur lors de l'ajout en bdd<br>";
 		}
 	}
+	
 	public static function verifyData()
 	{
 		if(!empty($_POST)){ 
@@ -69,7 +70,7 @@ class User extends Db
 			if (!isset($_POST["login"]) || empty($_POST["login"]))
 			{
 				$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
-					  Veuillez remplir le login !
+					  Veuillez remplir le login !!!!!
 				</div>";
 			
 			}
@@ -77,7 +78,7 @@ class User extends Db
 			if (!isset($_POST["mail"]) || empty($_POST["mail"]))
 			{
 				$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
-					  Veuillez remplir votre email !
+					  Veuillez remplir votre email !!!!!
 				</div>";
 			
 			}
@@ -90,7 +91,7 @@ class User extends Db
 			
 			}
 
-			if (!isset($_POST["tel"]) || empty($_POST["tel"]))
+			if (!isset($_POST["telephone"]) || empty($_POST["telephone"]))
 			{
 				$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
 					  Veuillez remplir votre telephone !
@@ -107,6 +108,28 @@ class User extends Db
 		
 	}
 }
+
+
+
+
+
+	public static function verifConnexion()
+	{
+		
+	
+			if (empty($_POST["mail"]) || empty($_POST["mdp"]))
+			{
+				$_SESSION["message"] = "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
+				Veuillez remplir vos information !
+				</div>";
+				exit();
+			
+			}
+		
+			
+		
+	}
+
 
 	public static function showDb()
 	{	
@@ -135,42 +158,24 @@ class User extends Db
 
 	}
 	
-	public static function remove(){
+	
+	
 
-	$requete = "DELETE FROM `user` WHERE `id_user` = ?";
 
-	$requetePreparee = $bdd->prepare($requete);
+	public static function getUser($mail, $password){
 
-	$reponse = $requetePreparee->execute([
-		$_GET["id"]
-		]);
+		$requete = "SELECT * FROM `user` WHERE `mail` = ? AND `password` = ?";
 
-	if (!$reponse)
-	{
-		$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
-			  La requete ne s'est pas déroulé correctement
-		</div>";
-		header("Location:" . __DIR__ . "profil");
-		exit;
-	}
+        $requeteprepare = self::getDb()->prepare($requete);
 
-	if ($requetePreparee->rowCount() == 0)
-	{
-		$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
-			  L'utilisateur que vous essayez de supprimer, n'existe pas !
-		</div>";
-		header("Location:" . __DIR__ . "profil");
-		exit;
-	}
+		$requeteprepare->execute(
+           [$mail,$password]
+        );
+        
+        $users = $requeteprepare->fetchAll(PDO::FETCH_ASSOC);
 
-	if ($requetePreparee->rowCount() == 1)
-	{
-		$_SESSION["message"] .= "<div class=\"alert alert-success w-50 mx-auto\" role=\"alert\">
-			  Vous avez bien supprimé l'utilisateur dont l'id est " . $_GET["id"] . "
-		</div>";
-		header("Location:" . URL . "user.php");
-		exit;
-	}
+        return $users;
+		
 	}
 	
 

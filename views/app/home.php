@@ -3,6 +3,19 @@ $title = "Accueil";
 include VIEWS.'inc/header.inc.php'; 
 ?>
 <main>
+    <div class="carrac">
+                <img class="imagee" src="<?= ASSETS. "img/image 28.png" ?>" alt="AFFICHE APROPOS">
+                <div class="text-overlay">
+                <p class="carrap">Bienvenue sur Spice Bloom</p>
+                <?php
+                if (!empty($_SESSION['user'])) {
+                    var_dump($_SESSION['user']);
+                }
+                ?>
+                <button onclick="window.location.href = '<?=BASE_PATH.'about'?>';" >À PROPOS DE NOUS</button>
+                
+                </div>
+              </div>
             <section class="center-section">
                 <h1>NOS CATÉGORIES</h1>
                 <div class="image-container">
@@ -156,4 +169,10 @@ include VIEWS.'inc/header.inc.php';
 
                                 </main>
 
-<?php  include VIEWS.'inc/footer.php'; ?>
+<?php  
+if (!empty($_SESSION['user'])) {
+    var_dump($_SESSION['user']);
+  }
+
+
+include VIEWS.'inc/footer.php'; ?>

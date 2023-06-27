@@ -10,7 +10,7 @@ class UserController
 
 		if (!empty($_POST)) 					// Si le formulaire est rempli
 		{
-			User::verifyData($_POST);			// On vérifie toutes les infos
+			User::verifyData();			// On vérifie toutes les infos
 
 			if (empty($_SESSION["message"]))	// Si y'a pas d'erreur
 			{
@@ -23,7 +23,7 @@ class UserController
 				if (empty($_SESSION["message"]))
 				{
 					$_SESSION["message"] .= "vous etes enregistre <br>";
-					header("Location:" . BASE_PATH . "inscription");
+					header("Location:" . BASE_PATH . "connexion");
 					exit;
 				}
 				else
@@ -41,49 +41,47 @@ class UserController
 	public static function connexion()
 	{
 
-		if (!empty($_POST)) 					// Si le formulaire est rempli
-		{
-			User::verifConnexion($_POST);
+		
+			User::verifConnexion();
 
 			if (!empty($_POST)) {
+
 				$mail = $_POST['mail'];
 				$password = $_POST['password'];
 
 				$result = User::getUser($mail, $password);
 
-				if ($result) {
-					$_SESSION['user'] = $result;
-					header("Location:" . BASE_PATH . "home");
+				if (is_array($result) && !empty($result)) {
+					$result = $_SESSION['user'];
+					header("Location:" . BASE_PATH . "");
+					$_SESSION["message"] .= "<div class=\"alert alert-success w-50 mx-auto\" role=\"alert\">
+					Vous êtes connecté ! </div>";
 					exit();
 				} else {
-					$_SESSION['message'] = "
-                    Les informations de connexion sont incorrectes </div>";
+					header("Location:" . BASE_PATH . "");
+					$_SESSION["message"] .= "<div class=\"alert alert-danger w-50 mx-auto\" role=\"alert\">
+					Les informations de connexion sont incorrectes </div>";
+					exit();
 				}
 			}
-		}
+		
+
 		include VIEWS . "user/connexion.php";
 	}
-	public static function modifier()
-	{
-		// nouvelle user
-		$user = new User();
-		// requete select ALL
 
-		$user->modifier();
-
-		//header location vers le front 
-		include VIEWS . "user/modif.php";
-	}
-	
-	public static function profil()
+	public static function connexion_front()
 	{
-		include VIEWS . "user/profil.php";
+		include VIEWS . "user/connexion.php";
 	}
+
 
 	public static function deconnexion()
 	{
 		session_destroy(); // supprimer la session
 		header("Location:" . BASE_PATH . ""); // redirection page d'aceuil 
+	}
+	public static function about(){
+		include VIEWS . "user/about.php";
 	}
 
 	

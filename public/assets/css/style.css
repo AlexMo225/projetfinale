@@ -10,27 +10,35 @@ body {
 }
 h1 {
     font-size: 40px;
+    color: #e49f4e;
+    text-align: center;
 }
 h2 {
     font-size: 32px;
+}
+h3 {
+    color: #731f14;
 }
 header {
     background-color: #f2f2f2;
 }
 a {
     text-decoration: none;
+    color: #e49f4e;
 }
 
 article-content centered-content p {
     color: black;
 }
 .price {
-    color:#e49f4e
+    color: #e49f4e;
 }
-.name-epice{
+.name-epice {
     color: black;
 }
-
+button {
+    cursor: pointer;
+}
 /********************************************************
                         INDEX
 ********************************************************/
@@ -68,9 +76,9 @@ article-content centered-content p {
     color: #fff;
     text-decoration: none;
 }
-.nav-list li a:hover {
+/*.nav-list li a:hover {
     color: #ffffff;
-}
+}*/
 
 .logo {
     display: flex;
@@ -166,6 +174,7 @@ article-content centered-content p {
     height: 36px;
 }
 .dropdown-menu {
+    z-index: 5;
     display: none;
     position: absolute;
     background-color: #f2f2f2;
@@ -189,15 +198,61 @@ article-content centered-content p {
     background-color: #731f14;
     color: #fff;
 }
+.nav-list a:hover {
+    background-color: white;
+    color:#999999;
+}
+.nav-list > li > a {
+    transition: all;
+    padding: 10px;
 
-.nav2:hover .nav-list li a:hover {
-    background-color: #731f14;
+}
+
+/********************************************************
+                    affiche INDEX
+********************************************************/
+
+.carrac {
+    margin: 70px 0;
+    padding: 0 70px;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagee {
+    object-fit: cover;
+}
+
+.text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
     color: #fff;
 }
 
-.nav2:hover .compte li a:hover {
-    background-color: #731f14;
+.text-overlay .carrap {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.text-overlay button {
+    background-color: #e49f4e;
     color: #fff;
+    font-size: 18px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.text-overlay button:hover {
+    background-color: #e68300;
 }
 
 .center-section {
@@ -486,4 +541,212 @@ footer {
 
 .social-icons a:hover {
     color: #000;
+}
+
+/********************************************************
+                        produit
+********************************************************/
+.prd {
+    display: flex;
+    flex-direction: column;
+    margin: 50px auto;
+    width: 1304px;
+    height: 900 px;
+    flex-shrink: 0;
+    background: #fff;
+    padding: 142px;
+}
+
+
+.details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 20px;
+}
+
+.productinfo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 80px;
+}
+
+.productinfo h2,
+.productinfo p {
+    text-align: left;
+}
+
+.image-info {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 90px;
+    width: 100%;
+    justify-content: space-between;
+}
+.prd h1 {
+    margin-top: -10%;
+}
+
+.image-info img {
+    width: 454px;
+    height: 403px;
+    margin-right: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    box-shadow: 4px 4px 3px 0px #00000040;
+    padding: 32px 99.02px 31.03px 100px;
+}
+
+.description {
+    text-align: left;
+    margin-top: 50px;
+}
+
+.slcprd {
+    width: 385px;
+    height: 36px;
+    display: inline-flex;
+    padding: 0px 0px 0px 13px;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 210px;
+    border-radius: 10px;
+    border: 1px solid #731f14;
+}
+.panini {
+    width: 336px;
+    height: 36px;
+    color: #f2f2f2;
+    background-color: #e49f4e;
+    border-color: transparent;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+}
+.desc-bb {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22.4px;
+    display: flex;
+    width: 481px;
+    flex-direction: column;
+    justify-content: center;
+}
+.productinfo p {
+    color: #e49f4e;
+}
+
+/********************************************************
+                        panier.html
+********************************************************/
+
+.vtrpanier {
+    display: flex;
+    flex-direction: column;
+    margin: 50px auto;
+    flex-shrink: 0;
+    background: #fff;
+    padding: 142px;
+}
+.ttlpanier {
+    margin: 70px;
+    border-radius: 5px;
+    width: 387px;
+    height: 137px;
+    flex-shrink: 0;
+    background: #fff;
+    flex-basis: 30%; 
+    padding: 20px;
+    margin-top: 49px;
+}
+.contpanier {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.vtrpanier {
+    border-radius: 5px;
+    flex-basis: 60%; 
+    padding: 50px;
+}
+
+.pdpanier {
+    height: 164px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border: 1px solid black;
+    margin-top: 7%;
+}
+
+.pdpanier img {
+    margin: 39px;
+    height: 148px;
+    margin-right: 20px;
+}
+
+.pd-details {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-around;
+    width: 100%;
+    flex-direction: row;
+}
+
+.pd-details select {
+    width: 71px;
+    height: 31px;
+    border-radius: 5px;
+}
+
+.pd-details button.delete-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.paninii {
+    width: 336px;
+    height: 36px;
+    color: #f2f2f2;
+    background-color: #e49f4e;
+    border-color: transparent;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: 7%;
+}
+
+/************************************************
+                        ABOUT
+************************************************/
+
+.abouut {
+    padding: 20px;
+}
+
+.proopo {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.imgproopo {
+    padding: 10px;
+    width: 697px;
+    display: block;
+    margin: 0 auto 30px;
+}
+
+.text {
+    text-align: justify;
+    line-height: 1.6;
+    color: #555;
 }

@@ -16,11 +16,10 @@ $title = "Connexion";
         <link
             href="https://fonts.googleapis.com/css2?family=Red+Rose:wght@300;400;700&display=swap"
             rel="stylesheet">
-            <link rel="icon" type="image" href="img/Group 2071.png" />    
-        <link rel="stylesheet" href="<?= ASSETS. "css/reset.css"?>">
+            <link rel="icon" type="image" href="<?= ASSETS. "img/Group 2071.png"?> " />       
+        <link rel="stylesheet" href="<?= ASSETS. "css/reset.css"?>">7
         <link rel="stylesheet" href="<?= ASSETS. "css/conex.css" ?>">
         <script src="<?= ASSETS. "js/slider.js"?>" defer></script>
-        <script src="<?= ASSETS. "js/main.js"?>" defer></script>
     </head>
 <body>
         <section>
@@ -37,23 +36,23 @@ $title = "Connexion";
             <div class="contentbox">
                 <div class="formbox">
                     <h1>Se connecter</h1>
-                    <form action="#">
-                        <div class="inputbx">
-                            <span>Email</span>
-                            <input type="text">
-                        </div>
-                        <div class="inputbx">
-                            <span>Mot de passe</span>
-                            <input type="password">
-                        </div>
-                        <div class="inputbx">
-                            <input type="submit" value="Connexion" name="submit">
-                        </div>
-                        <div class="inputbx">
-                            <p>Vous n'avez pas de compte ? <a
-                                    href="inscription">Créez un compte !</a></p>
-                        </div>
-                    </form>
+                        <form action="login" method="POST">
+                            <div class="inputbx">
+                                <span>Email</span>
+                                <input type="text" name="mail"> 
+                            </div>
+                            <div class="inputbx">
+                                <span>Mot de passe</span>
+                                <input type="password" name="mdp">
+                            </div>
+                            <div class="inputbx">
+                                <input type="submit" value="Connexion" name="submit">
+                            </div>
+                            <div class="inputbx">
+                                <p>Vous n'avez pas de compte ? <a
+                                        href="inscription">Créez un compte !</a></p>
+                            </div>
+                        </form>
 
                 </div>
 
@@ -61,9 +60,3 @@ $title = "Connexion";
         </section>
 
     </body>
-<?php  
-
-if (!empty($_SESSION['user'])) {
-  var_dump($_SESSION['user']);
-}
-?>

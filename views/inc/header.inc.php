@@ -16,14 +16,13 @@
         <link rel="stylesheet" href="<?= ASSETS. "css/reset.css"?>">
         <link rel="stylesheet" href="<?= ASSETS. "css/style.css"?>">
         <script src="<?= ASSETS. "js/slider.js"?>" defer></script>
-        <script src="<?= ASSETS. "js/main.js"?>" defer></script>
     </head>
     <body>
         <header>
             <!-- navigation 1 -->
             <div class="nav1">
                 <ul class="logo">
-                    <li class="logo-img"><a href="<?=CONFIG['app']['projectBaseUrl']."public"?>"><img
+                    <li class="logo-img"><a href="<?=CONFIG['app']['projectBaseUrl']."/public"?>"><img
                     src="<?= ASSETS. "img/Group 2070.png" ?>"
                                 alt="logo-space-bloom"></a></li>
                 </ul>
@@ -32,22 +31,20 @@
                     <input type="text" name="search"
                         placeholder="paprika .......">
                     <button class="button-search" type="submit"><iconify-icon
-                            icon="material-symbols:search-rounded"
-                            style="color: white;" width="20" height="20"></iconify-icon></button>
+                        icon="material-symbols:search-rounded"
+                        style="color: white;" width="20" height="20"></iconify-icon></button>
                 </form>
 
-                <form class="panier" action="#" method="POST">
-                    <button class="button-panier" type="submit">
+                    <button class="button-panier" type="submit" onclick="window.location.href='<?=BASE_PATH.'show_panier'?>';">
                         <iconify-icon icon="vaadin:cart" style="color: #731f14;"
                             width="17" height="19"></iconify-icon>
-                        <p>Panier</p>
+                        <p>Panier : <?= PanierController::getQuantiteTotale() ?></p>
                     </button>
-                </form>
             </div>
             <nav>
                 <div class="nav2">
                     <ul class="nav-list">
-                        <li><a class="active" href="<?=CONFIG['app']['projectBaseUrl']."public"?>">ACCUEIL</a></li>
+                        <li><a class="active" href="<?=CONFIG['app']['projectBaseUrl']."/public"?>">ACCUEIL</a></li>
                         <li class="dropdown">
                             <a href="#">CATÉGORIE</a>
                             <ul class="dropdown-menu">
@@ -56,8 +53,8 @@
                                 <li><a href="<?=BASE_PATH.'Epice?id=3'?>">Épices Méditerranéennes</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">PRODUITS</a></li>
-                        <li><a href="<?=BASE_PATH.'apropos'?>">À PROPOS</a></li>
+                        <li><a href="<?=BASE_PATH.'Epice?id='.rand(1, 3)?>">PRODUITS</a></li>
+                        <li><a href="<?=BASE_PATH.'about'?>">À PROPOS</a></li>
                         <li><a href="<?=BASE_PATH.'contact'?>">CONTACT</a></li>
                     </ul>
 

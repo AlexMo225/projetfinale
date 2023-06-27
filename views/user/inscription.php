@@ -1,6 +1,14 @@
 <?php  
-$title = "Inscription";
+
+$title = "inscription";
+
+
 ?>
+<?= isset($_SESSION["message"]) ? $_SESSION["message"] : "";
+
+$_SESSION["message"] = "";
+?>
+
 <!DOCTYPE html>
 <html lang="fr-FR">
     <head>
@@ -15,11 +23,10 @@ $title = "Inscription";
         <link
             href="https://fonts.googleapis.com/css2?family=Red+Rose:wght@300;400;700&display=swap"
             rel="stylesheet">
-            <link rel="icon" type="image" href="img/Group 2071.png" />    
+            <link rel="icon" type="image" href="<?= ASSETS. "img/Group 2071.png"?> " />     
         <link rel="stylesheet" href="<?= ASSETS. "css/reset.css"?>">
         <link rel="stylesheet" href="<?= ASSETS. "css/conex.css" ?>">
         <script src="<?= ASSETS. "js/slider.js"?>" defer></script>
-        <script src="<?= ASSETS. "js/main.js"?>" defer></script>
     </head>
 	<body>
         <section>
@@ -34,7 +41,9 @@ $title = "Inscription";
             <div class="contentbox">
                     <div class="formbox">
                         <h1>Créez Votre Compte</h1>
-                        <form action="#">
+
+
+                        <form method="post" action="inscription" id="inscription">
                             <div class="inputbx">
                                 <span>Nom</span>
                                 <input id="nom" type="text" name="nom">
@@ -42,6 +51,10 @@ $title = "Inscription";
                             <div class="inputbx">
                                 <span>Prenom</span>
                                 <input id="prenom" type="text" name="prenom">
+                            </div>
+                            <div class="inputbx">
+                                <span>Login</span>
+                                <input id="login" type="text" name="login">
                             </div>
                             <div class="inputbx">
                                 <span>Email</span>
@@ -53,7 +66,7 @@ $title = "Inscription";
                             </div>
                             <div class="inputbx">
                                 <span>Télephone</span>
-                                <input type="tel" id="tel"  name="tel">
+                                <input type="tel" id="tel"  name="telephone">
                             </div>
                             <div class="inputbx">
                                 <span>Adresse</span>
@@ -71,6 +84,6 @@ $title = "Inscription";
     
             </div>
         </section>
-        
+     
         </body>
     </html>

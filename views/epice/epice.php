@@ -2,8 +2,49 @@
 $title = "Epice";
 include VIEWS.'inc/header.inc.php'; 
 $epices=Epice::epicebyid();
-//var_dump($epices);
+
+
+
+
 ?>
+
+<div>
+<?php 
+$breadcrumb = App::getBreadcrumbData($_SERVER['REQUEST_URI']);
+
+unset($breadcrumb['Connexion']);
+unset($breadcrumb['Inscription']);
+unset($breadcrumb['Profil']);
+unset($breadcrumb['Ajouter un véhicule']);
+unset($breadcrumb['Panier']);
+unset($breadcrumb['le Produit']);
+
+// Début du fil d'Ariane
+echo '<ul class="breadcrumb">';
+
+// Parcours des éléments du fil d'Ariane
+foreach ($breadcrumb as $title => $url) {
+    // Lien actif (dernier élément du fil d'Ariane)
+    if ($url == '#') {
+        $breadcrumbHtml[] = '<li class="active">' . $title . '</li>';
+    }
+    // Liens normaux
+    else {
+        $breadcrumbHtml[] = '<li><a href="' . $url . '">' . $title . '</a></li>';
+    }
+}
+
+// Concaténation avec des slashs
+$breadcrumbString = implode(' / ', $breadcrumbHtml);
+
+// Affichage du fil d'Ariane
+echo $breadcrumbString;
+
+// Fin du fil d'Ariane
+echo '</ul>';
+?>
+</div>
+
 
 <main>
             <section class="produit-center">
@@ -18,19 +59,13 @@ $epices=Epice::epicebyid();
 ?>                      
 
                         <article>
-                            <a href="<?=BASE_PATH.'fiche?id='.$allepice["id_epices"] ?>">
-                            <img src=" <?= ASSETS. "img/" .$allepice["image_epices"] ?>" alt="<?= $allepice["nom"] ?>" width="273"
+                            <a href="<?=BASE_PATH.'fiche?id='.$allepice["id_epices"]?>">
+                                <img src=" <?= ASSETS. "img/" .$allepice["image_epices"] ?>" alt="<?= $allepice["nom"] ?>" width="273"
                                 height="223">
                             <div class="article-content">
                                 <div class="article-content centered-content">
                                     <p class="name-epice"> <?= $allepice["nom"] ?> </p>
                                     <p class="price" ><?= $allepice["prix"] ?> €</p>
-                                    <button class="panier-button">
-                                        <iconify-icon
-                                            icon="map:grocery-or-supermarket"
-                                            width="17" height="19"></iconify-icon>
-                                        Ajouter
-                                    </button>
                                 </div>
                             </div>
                             </a>

@@ -3,7 +3,7 @@
 /**
  * Fichier contenant la configuration de l'application
 */
-const CONFIG = [
+/**const CONFIG = [
     'db' => [
         'DB_HOST' => 'localhost',
         'DB_PORT' => '3306',
@@ -16,22 +16,30 @@ const CONFIG = [
         'projectBaseUrl' => 'https://mjm03.fr/dv22sahie/'
     ]
 ];
-/**const CONFIG = [
-   'db' => [ 
-       'DB_HOST' => 'localhost',
-       'DB_PORT' => '3306',
-       'DB_NAME' => 'epices',
-       'DB_USER' => 'root',
-       'DB_PSWD' => '',
-   ],
-   'app' => [
-       'name' => 'projetfinale',
-       'projectBaseUrl' => 'http://localhost/projetfinale'
-   ]
+/**const BASE_DIR = __DIR__ . '/../';
+const BASE_PATH = CONFIG['app']['projectBaseUrl'] . '/public/index.php/';
+const PUBLIC_FOLDER = BASE_DIR . 'public/';
+const VIEWS = BASE_DIR . 'views/';
+const MODELS = BASE_DIR . 'src/models/';
+const CONTROLLERS = BASE_DIR . 'src/controllers/';
+const PHOTO = BASE_DIR.'public/upload/';
+const COVER = '../../public/upload/';
+const ASSETS= CONFIG['app']['projectBaseUrl']  . '/public/assets/'; 
+*/
+
+const CONFIG = [
+    'db' => [
+        'DB_HOST' => 'localhost',
+        'DB_PORT' => '3306',
+        'DB_NAME' => 'epices',
+        'DB_USER' => 'root',
+        'DB_PSWD' => '',
+    ],
+    'app' => [
+        'name' => 'projetfinale',
+        'projectBaseUrl' => 'http://localhost/projetfinale'
+    ]
 ];
-**/
-
-
 /**
  * Constantes pour accéder rapidement aux dossiers importants du MVC
  */
@@ -53,11 +61,26 @@ const ASSETS= CONFIG['app']['projectBaseUrl']  . '/public/assets/';
 $routes = [
     ''                  => ['AppController', 'index'],
     '/inscription'       => ['UserController', 'inscription'],
-    '/connexion'       => ['UserController', 'connexion'],
+    '/connexion'       => ['UserController', 'connexion_front'],
+    '/login'       => ['UserController', 'connexion'],
+    '/about'       => ['UserController', 'about'],
+    
     '/modif'       => ['UserController', 'modif'],
     '/profil'       => ['UserController', 'profil'],
-    '/Epice'       => ['EpiceController', 'epice']
 
+     // Routes pour la gestion de la page catégorie et produit 
+    '/Epice'       => ['EpiceController', 'epice'],
+    '/fiche'      => ['EpiceController', 'epice_produit'],
+
+
+     // Routes pour la gestion du panier
+'/show_panier'                     => ['PanierController', 'afficherPanier'],
+'/add_panier' => ['PanierController', 'ajouterProduit'],
+'/supp_panier'         => ['PanierController', 'supprimerProduit'],
+'/vider_panier'               => ['PanierController', 'viderPanier']
+
+
+    
 
 
 
