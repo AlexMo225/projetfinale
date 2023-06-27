@@ -3,7 +3,7 @@
 /**
  * Fichier contenant la configuration de l'application
 */
-/**const CONFIG = [
+const CONFIG = [
     'db' => [
         'DB_HOST' => 'localhost',
         'DB_PORT' => '3306',
@@ -27,7 +27,7 @@ const COVER = '../../public/upload/';
 const ASSETS= CONFIG['app']['projectBaseUrl']  . '/public/assets/'; 
 */
 
-const CONFIG = [
+/**const CONFIG = [
     'db' => [
         'DB_HOST' => 'localhost',
         'DB_PORT' => '3306',
