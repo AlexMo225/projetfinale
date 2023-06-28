@@ -36,7 +36,7 @@ $title = "Connexion";
             <div class="contentbox">
                 <div class="formbox">
                     <h1>Se connecter</h1>
-                        <form action="login" method="POST">
+                        <form action="<?= BASE_PATH ?>/login" method="POST">
                             <div class="inputbx">
                                 <span>Email</span>
                                 <input type="text" name="mail"> 
