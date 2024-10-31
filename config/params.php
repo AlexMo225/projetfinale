@@ -13,7 +13,7 @@ const CONFIG = [
     ],
     'app' => [
         'name' => 'projetfinale',
-        'projectBaseUrl' => 'https://alexmorel.alwaysdata.net/'
+        'projectBaseUrl' => 'https://alexmorel.alwaysdata.net/public/'
     ]
 ];
 /**const BASE_DIR = __DIR__ . '/../';
