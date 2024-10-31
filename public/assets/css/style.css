@@ -750,3 +750,95 @@ footer {
     line-height: 1.6;
     color: #555;
 }
+
+
+
+
+********************************************************
+                Responsive Media Queries
+********************************************************/
+
+/* Tablets and Smaller Desktops (768px and above) */
+@media (max-width: 1200px) {
+    .nav1, .nav2 {
+        padding: 0px 3%;
+    }
+
+    .nav-list {
+        gap: 20px;
+    }
+
+    .compte {
+        gap: 20px;
+    }
+
+    .button-panier {
+        width: 90px;
+    }
+}
+
+/* Mobile Devices (Below 768px) */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .nav1, .nav2 {
+        padding: 0px 2%;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .compte {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .formulaire > input {
+        max-width: 100%;
+        width: 250px;
+    }
+
+    .button-panier {
+        width: 80px;
+    }
+
+    .panier p {
+        font-size: 14px;
+    }
+
+    .dropdown-menu {
+        width: 100%;
+    }
+}
+
+/* Small Mobile Devices (Below 480px) */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .nav-list {
+        gap: 5px;
+    }
+
+    .compte {
+        gap: 5px;
+    }
+
+    .button-panier {
+        width: 75px;
+        height: 32px;
+    }
+
+    .panier p {
+        font-size: 12px;
+    }
+
+    .formulaire > input {
+        width: 200px;
+    }
+}
